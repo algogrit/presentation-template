@@ -6,7 +6,7 @@ Start simple http server
 
 Open http://localhost:8000
 
-Powered by [Remark](https://remarkjs.com).
+Powered by [Remark](https://remarkjs.com). Tips & tricks: https://github.com/gnab/remark/wiki/Markdown.
 
 ## Changes to be done
 
