@@ -98,3 +98,8 @@ body.light .left-column {
 body.light .left-column strong {
   color: #444;
 }
+
+code {
+  display: inline-block !important;
+  text-align: left;
+}

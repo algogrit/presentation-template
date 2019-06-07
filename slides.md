@@ -27,6 +27,19 @@ Principal Consultant & Founder @ https://agarwalconsulting.io
 ex-Tarka Labs, ex-BrowserStack, ex-ThoughtWorks
 
 ---
+class: center, middle
+
+```golang
+package main
+
+import "fmt"
+
+func main() {
+  fmt.Println("Hello, world!")
+}
+```
+
+---
 
 class: center, middle
 
