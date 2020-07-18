@@ -16,5 +16,7 @@ cname=`cat CNAME`
 git remote remove origin
 hub create -d "Presentation for $title" -h "https://$cname" presentation-$kebab_title
 
+git add .
+
 git commit -m "New: $title"
 git push -u
