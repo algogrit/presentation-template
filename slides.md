@@ -22,7 +22,7 @@ class: center, middle
 
 Software Engineer & Product Developer
 
-Principal Consultant & Founder @ https://agarwalconsulting.io
+Director of Engineering & Founder @ https://codermana.com
 
 ex-Tarka Labs, ex-BrowserStack, ex-ThoughtWorks
 
