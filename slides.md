@@ -44,7 +44,7 @@ func main() {
 class: center, middle
 
 Code
-https://github.com/algogrit/presentation-template
+https://github.com/base-org/presentation-template
 
 Slides
-https://template.slides.algogrit.com
+https://template.slides.base-org.com
