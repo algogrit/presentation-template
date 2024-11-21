@@ -5,7 +5,7 @@ base_org=AgarwalConsulting
 template=`git remote get-url origin`
 git remote add template $template
 
-gsed -i s/\{base-org\}/"$base_org"/g slides.md
+gsed -i s/base-org/$base_org/g slides.md
 gsed -i s/base-org/$base_org/g CNAME
 
 title=`cat TITLE`
