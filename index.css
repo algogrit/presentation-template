@@ -56,6 +56,13 @@ img {
   padding-top: 1em;
 }
 
+.caveat {
+  font-size: 10px;
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+}
+
 .image-credits {
   font-size: 10px;
   position: absolute;
