@@ -59,8 +59,8 @@ img {
 .caveat {
   font-size: 16px;
   position: absolute;
-  bottom: 40px;
-  right: 20px;
+  bottom: 60px;
+  left: 40px;
 }
 
 .image-credits {
