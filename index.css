@@ -106,3 +106,7 @@ code {
   display: inline-block !important;
   text-align: left;
 }
+
+table td, th {
+  border: solid 1px lightgrey;
+}
