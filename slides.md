@@ -144,4 +144,4 @@ Code
 https://github.com/base-org/presentation-template
 
 Slides
-https://template.slides.base-org.com
+https://template.slides.host-org.com
