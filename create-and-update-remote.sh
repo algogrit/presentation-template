@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
-base_org=AgarwalConsulting
+base_org=CoderMana
+host_org=algogrit
 
 template=`git remote get-url origin`
 git remote add template $template
 
 gsed -i s/base-org/$base_org/g slides.md
-gsed -i s/base-org/$base_org/g CNAME
+gsed -i s/host-org/$host_org/g CNAME
 
 title=`cat TITLE`
 gsed -i s/\{Template\}/"$title"/g index.html
