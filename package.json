@@ -1,0 +1,15 @@
+{
+  "name": "presentation-template-marp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reusable Marp presentation template for technical talks and training.",
+  "scripts": {
+    "preview": "marp --server .",
+    "html": "marp slides.md --html --theme themes/base.css -o dist/index.html",
+    "pdf": "marp slides.md --pdf --allow-local-files --theme themes/base.css -o dist/slides.pdf",
+    "pptx": "marp slides.md --pptx --allow-local-files --theme themes/base.css -o dist/slides.pptx"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.3.0"
+  }
+}
