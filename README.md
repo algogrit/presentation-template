@@ -65,6 +65,6 @@ Markdown conventions:
 - Use `> Blockquote` for callouts.
 - Use `<!-- _class: quote -->` plus `> Quote text` for large quote slides.
 - Use a three-column Markdown table on `cards` slides.
-- Use Marp background image syntax like `![bg right:45% fit](assets/images/example.jpg)` for visual split slides.
+- Use Marp background image syntax like `![bg right:38% w:88%](assets/images/example.jpg)` for visual split slides.
 
 HTML is still available if a specific deck needs a custom one-off layout, but the starter deck avoids it.

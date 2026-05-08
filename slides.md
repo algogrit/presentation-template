@@ -44,7 +44,7 @@ Use this deck as a working scaffold. Replace the examples with your content and 
 
 <!-- _class: speaker -->
 
-![bg right:38% fit](assets/images/me.png)
+![bg right:38% w:88%](assets/images/me.png)
 
 ###### Speaker
 
@@ -70,7 +70,7 @@ Section slides should reset attention and name the next idea plainly.
 
 <!-- _class: split -->
 
-![bg right:38% fit](assets/images/learning-curve.jpg)
+![bg right:38% w:88%](assets/images/learning-curve.jpg)
 
 ## Split layout
 
