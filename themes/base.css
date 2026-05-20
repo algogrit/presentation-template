@@ -149,6 +149,8 @@ img {
 }
 
 table {
+  background: rgba(23, 28, 35, 0.72);
+  border: 1px solid var(--line);
   border-collapse: collapse;
   font-size: 22px;
   margin-top: 24px;
@@ -158,13 +160,23 @@ table {
 th,
 td {
   border-bottom: 1px solid var(--line);
+  background-color: rgba(23, 28, 35, 0.82);
   padding: 14px 16px;
   text-align: left;
 }
 
 th {
+  background-color: var(--surface-strong);
   color: var(--accent);
   font-size: 28px;
+}
+
+td {
+  color: var(--text);
+}
+
+tbody tr:nth-child(even) td {
+  background-color: rgba(32, 39, 51, 0.76);
 }
 
 code {
@@ -253,6 +265,7 @@ section.split p {
 
 section.image img {
   aspect-ratio: 16 / 9;
+  object-fit: contain;
   width: 100%;
 }
 
@@ -268,34 +281,26 @@ section.quote > p:last-child {
 }
 
 section.cards table {
-  border-collapse: separate;
-  border-spacing: 20px 0;
-  margin-left: -20px;
+  border-collapse: collapse;
   table-layout: fixed;
 }
 
 section.cards th,
 section.cards td {
-  background-color: #1b212a !important;
-  display: table-cell;
-  padding: 22px;
+  padding: 18px;
   vertical-align: top;
 }
 
 section.cards th {
-  border: 1px solid var(--line);
-  border-bottom: 0;
-  border-radius: 8px 8px 0 0;
+  background-color: var(--surface-strong);
+  border-bottom: 1px solid var(--line);
   color: var(--accent);
-  font-size: 27px;
+  font-size: 24px;
 }
 
 section.cards td {
-  border: 1px solid var(--line);
-  border-radius: 0 0 8px 8px;
-  border-top: 0;
   color: var(--muted);
-  font-size: 20px;
+  font-size: 21px;
 }
 
 section.code pre {
