@@ -217,6 +217,49 @@ pre code {
   text-transform: uppercase;
 }
 
+section.content-credit:not(.image-credit) > p:last-of-type,
+section.image-credit:not(.content-credit) > p:last-of-type,
+section.content-credit.image-credit > p:nth-last-of-type(2),
+section.content-credit.image-credit > p:last-of-type {
+  bottom: 55px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.2;
+  max-width: 560px;
+  margin: 0;
+  position: absolute;
+  right: 20px;
+  text-align: right;
+}
+
+section.content-credit:not(.image-credit) > p:last-of-type a,
+section.image-credit:not(.content-credit) > p:last-of-type a,
+section.content-credit.image-credit > p:nth-last-of-type(2) a,
+section.content-credit.image-credit > p:last-of-type a {
+  color: inherit;
+}
+
+section.content-credit:not(.image-credit) > p:last-of-type::before,
+section.content-credit.image-credit > p:nth-last-of-type(2)::before {
+  color: var(--accent);
+  content: 'Content Credits: ';
+}
+
+section.content-credit.image-credit > p:nth-last-of-type(2) {
+  bottom: 69px;
+}
+
+section.content-credit.image-credit > p:last-of-type::before {
+  color: var(--accent);
+  content: 'Image Credits: ';
+}
+
+section.image-credit:not(.content-credit) > p:last-of-type::before {
+  color: var(--accent);
+  content: 'Image Credits: ';
+}
+
 section.title {
   padding: 76px 88px 88px;
 }
@@ -324,5 +367,5 @@ section.takeaway {
 
 section.takeaway h1,
 section.takeaway h2 {
-  color: var(--accent-2);
+  color: var(--accent);
 }
