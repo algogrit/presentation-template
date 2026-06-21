@@ -3,21 +3,159 @@ marp: true
 theme: base
 paginate: true
 size: 16:9
+transition: fade 0.4s
 title: Presentation Template
 description: Reusable Marp template for technical talks and training.
 author: Gaurav Agarwal
-footer: "@algogrit"
+footer: "![CoderMana](assets/codermana.svg)"
 ---
 
 <!-- _class: title -->
+<!-- _transition: coverflow 0.7s -->
 
-###### Presentation Template
+###### Eyebrow
 
 # Presentation Title
 
-A reusable Marp deck with strong defaults, flexible layouts, and export-ready slides.
+A one-line hook that sets up the talk.
 
-Gaurav Agarwal
+###### Gaurav Agarwal
+
+---
+
+<!-- _class: cols-photo -->
+
+<div class="cols">
+<div class="col-media">
+
+![Me](assets/images/me.png)
+
+</div>
+<div class="col-body">
+
+## Gaurav Agarwal
+
+Software Engineer & Product Developer
+
+Director of Engineering & Founder @ https://codermana.com
+
+ex-Tarka Labs, ex-BrowserStack, ex-ThoughtWorks
+
+</div>
+</div>
+
+---
+
+<!-- _class: cols-photo media-right center-body -->
+
+<div class="cols">
+<div class="col-media">
+
+![In-class Training](assets/images/professional-training-courses.jpg)
+
+</div>
+<div class="col-body">
+
+*What we wanted*
+
+</div>
+</div>
+
+---
+
+<!-- _class: cols-photo center-body -->
+
+<div class="cols">
+<div class="col-media">
+
+![WFH](assets/images/wfh.jpg)
+
+</div>
+<div class="col-body">
+
+*What we got*
+
+</div>
+</div>
+
+---
+
+## As an instructor
+
+* I promise to make this class as interactive as possible
+* I will use as many resources as available to keep you engaged
+* I will ensure everyone's questions are addressed
+
+---
+
+## What I need from you
+
+* Be vocal
+  - Let me know if there are any audio/video issues ASAP
+  - Feel free to interrupt me and ask questions
+* Be punctual
+* Give feedback
+* Work on the exercises
+* Be *on mute* unless you are speaking
+
+---
+
+<!-- _class: center middle intro-photo -->
+
+## Class progression
+
+![Learning Curve](assets/images/learning-curve.jpg)
+
+---
+
+<!-- _class: center middle -->
+
+Here you are trying to *learn* something, while here your **brain** is doing you a favor by making sure the learning doesn't stick.
+
+---
+
+### Some tips
+
+* Slow down: stop and think
+  - Listen for the questions and answer
+* Do the exercises
+  - They are not add-ons; they are not optional
+* There are no dumb questions
+* Drink water. Lots of it.
+
+---
+
+### Some tips (continued)
+
+* Take notes
+  - Try repetitive, spaced-out learning
+* Talk about it out loud
+* Listen to your brain
+* *Experiment*
+
+---
+
+<!-- _class: center middle content-time -->
+
+<div class="content-time-rule" aria-label="Content is greater than time">
+  <span class="content-time-item">
+    <img class="lucide" src="assets/icons/book-open.svg" alt="" />
+    <span>Content</span>
+  </span>
+  <span class="content-time-symbol">&gt;</span>
+  <span class="content-time-item">
+    <img class="lucide" src="assets/icons/clock.svg" alt="" />
+    <span>Time</span>
+  </span>
+</div>
+
+---
+
+<!-- _class: center middle -->
+
+## Show of hands
+
+*Yay's in chat*
 
 ---
 
@@ -144,9 +282,11 @@ Work in pairs for 10 minutes.
 
 # Takeaways
 
-- One idea the audience should remember
-- One habit they can practice immediately
-- One resource they can use after the session
+* One idea the audience should remember
+* One habit they can practice immediately
+* One resource they can use after the session
+
+> `*` bullets reveal one click at a time. Use plain `-` for lists that should appear all at once.
 
 ---
 

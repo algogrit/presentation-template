@@ -4,12 +4,20 @@
   "private": true,
   "description": "Reusable Marp presentation template for technical talks and training.",
   "scripts": {
-    "preview": "marp --server .",
+    "css": "node scripts/build-theme.mjs",
+    "prelint": "npm run css",
+    "lint": "node scripts/check-slides.mjs",
+    "prepreview": "npm run css",
+    "preview": "marp --server . --html",
+    "prehtml": "npm run css",
     "html": "marp slides.md --html --theme themes/base.css -o dist/index.html",
+    "prepdf": "npm run css",
     "pdf": "marp slides.md --pdf --allow-local-files --theme themes/base.css -o dist/slides.pdf",
+    "prepptx": "npm run css",
     "pptx": "marp slides.md --pptx --allow-local-files --theme themes/base.css -o dist/slides.pptx"
   },
   "devDependencies": {
-    "@marp-team/marp-cli": "^4.3.0"
+    "@marp-team/marp-cli": "^4.3.0",
+    "sass": "^1.101.0"
   }
 }
