@@ -475,6 +475,32 @@ section.quote > p:last-child {
   font-weight: 700;
 }
 
+/* Caveat slides keep the main explanation in the normal flow and anchor one
+   consequential constraint or exception above the footer. */
+section.caveat {
+  padding-bottom: 150px;
+}
+
+section.caveat > blockquote:last-child {
+  background: rgba(234, 179, 8, 0.09);
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  border-left: 6px solid var(--accent);
+  bottom: 58px;
+  color: var(--muted);
+  font-size: 18px;
+  font-weight: 600;
+  left: 76px;
+  line-height: 1.3;
+  margin: 0;
+  padding: 14px 18px;
+  position: absolute;
+  right: 76px;
+}
+
+section.caveat > blockquote:last-child p {
+  margin: 0;
+}
+
 section.cards table {
   border-collapse: collapse;
   table-layout: fixed;

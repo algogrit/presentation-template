@@ -4,9 +4,51 @@ A reusable [Marp](https://marp.app) template for technical talks, workshops, and
 
 ## Setup
 
+Use Node.js `24.18.0` (the version pinned in `.nvmrc` and `.node-version`):
+
 ```sh
+fnm use
 npm install
 ```
+
+The common workflows also have Make targets; run `make help` to list them.
+
+## Create A Deck Repository
+
+The creation workflow updates `deck.config.json`, synchronizes generated files,
+creates the GitHub repository, preserves the template repository as the
+`template` remote, repoints `origin`, commits the deck, and pushes it:
+
+```sh
+npm run create-deck -- \
+  --title "Temporal Fundamentals" \
+  --description "A practical introduction to Temporal." \
+  --repo-org CoderMana
+```
+
+The Make equivalent is:
+
+```sh
+make create TITLE="Temporal Fundamentals" \
+  ARGS='--description "A practical introduction to Temporal." --repo-org CoderMana'
+```
+
+The original template-style invocation is also supported:
+
+```sh
+echo 'Temporal Fundamentals' > TITLE
+./create-and-update-remote.sh \
+  --description "A practical introduction to Temporal." \
+  --repo-org CoderMana
+```
+
+The shell script is only a compatibility wrapper around `npm run create-deck`;
+repository creation logic remains in `scripts/create-deck.mjs`.
+
+Use `--dry-run` to inspect the derived metadata without changing files, Git
+remotes, or GitHub. Use `--no-push` to create and configure the repository but
+leave the initial commit local. The workflow requires authenticated `gh` and
+uses the existing `origin` URL to choose SSH or HTTPS for the new remote.
 
 ## Preview
 
@@ -30,12 +72,35 @@ theme first via a `pre*` hook, so a stale stylesheet can never ship.
 ## Lint
 
 ```sh
-npm run lint          # fail if any slide overflows the 1280x720 box
+npm run lint              # validate metadata and fail on slide overflow
 npm run lint -- --dense   # also flag crammed-but-fitting slides (advisory)
 ```
 
-Marp silently lets content spill past the bottom of a slide. `lint` renders every
-slide headlessly (reusing the Chromium marp-cli bundles) and reports any overflow.
+The metadata check rejects stale generated fields, unresolved placeholders, and,
+for non-template decks, an `origin` remote that does not match the configured
+repository. The slide check renders every slide headlessly and reports overflow.
+
+## Deck Metadata
+
+`deck.config.json` is the source of truth for deck identity and publishing:
+
+- title, description, and author
+- URL slug
+- GitHub repository organization and name
+- hosting base domain (the custom domain is `<slug>.<baseDomain>`)
+
+After editing it, synchronize generated front matter, title-slide copy, resource
+links, `CNAME`, and package metadata:
+
+```sh
+npm run deck:sync
+npm run deck:check
+```
+
+When creating a real deck from this template, set `isTemplate` to `false`.
+Validation will then reject the starter title and verify that `origin` points at
+the configured repository. Generated sections in `slides.md` are enclosed by
+`deck:*` comments and should not be edited directly.
 
 ## Theme
 
@@ -61,7 +126,7 @@ properties and Sass variables.
 
 After copying this repository:
 
-- Update the title, author, and description in `slides.md`.
+- Update `deck.config.json`, set `isTemplate` to `false`, and run `npm run deck:sync`.
 - Replace images in `assets/images/`.
 - Edit theme tokens at the top of `themes/base.scss`, then run `npm run css`.
 - Keep useful layout examples and delete the rest.
@@ -84,6 +149,7 @@ Available slide classes:
 - `split` - two-column content
 - `image` - image-led slide
 - `quote` - pull quote
+- `caveat` - normal slide content with one consequential note anchored above the footer
 - `cards` - three-card summary
 - `code` - code-focused slide
 - `exercise` - workshop prompt
@@ -99,10 +165,32 @@ Markdown conventions:
 - Use a normal paragraph after the main heading for lead copy.
 - Use `> Blockquote` for callouts.
 - Use `<!-- _class: quote -->` plus `> Quote text` for large quote slides.
+- Use `<!-- _class: caveat -->` and make the final blockquote the caveat.
 - Use a three-column Markdown table on `cards` slides.
 - Use Marp background image syntax like `![bg right:38% w:88%](assets/images/example.jpg)` for visual split slides.
 
 HTML is still available if a specific deck needs a custom one-off layout, but the starter deck avoids it.
+
+## Authoring Assets
+
+Prefer source-native content whenever it remains readable:
+
+- Use fenced code blocks for short code that should be discussed line by line.
+- Use terminal recordings only when timing or interaction is the point; otherwise
+  paste the commands and output as text.
+- Use screenshots for product interfaces or output that cannot be reproduced
+  cleanly in Markdown. Crop them tightly and remove unrelated UI.
+- Compress raster images before committing them. Use SVG for diagrams, logos,
+  and icons when available.
+- Put image or content attribution on the slide using the `image-credit` and
+  `content-credit` classes. The final paragraph (or final two paragraphs when
+  both classes are present) becomes the credit line.
+
+Useful tools include [Carbon](https://carbon.now.sh/) for exceptional code
+screenshots, [VHS](https://github.com/charmbracelet/vhs) or
+[asciinema](https://asciinema.org/) for terminal recordings, and
+[ImageOptim](https://imageoptim.com/) or equivalent tooling for raster
+compression. Do not turn ordinary readable text into an image.
 
 ## Motion (live HTML deck only)
 

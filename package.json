@@ -2,18 +2,25 @@
   "name": "presentation-template-marp",
   "version": "1.0.0",
   "private": true,
-  "description": "Reusable Marp presentation template for technical talks and training.",
+  "description": "Reusable Marp template for technical talks and training.",
+  "engines": {
+    "node": "24.18.0"
+  },
   "scripts": {
+    "create-deck": "node scripts/create-deck.mjs",
+    "deck:sync": "node scripts/deck-metadata.mjs",
+    "deck:check": "node scripts/deck-metadata.mjs --check",
+    "prepare:deck": "npm run deck:check && npm run css",
     "css": "node scripts/build-theme.mjs",
-    "prelint": "npm run css",
+    "prelint": "npm run prepare:deck",
     "lint": "node scripts/check-slides.mjs",
-    "prepreview": "npm run css",
+    "prepreview": "npm run prepare:deck",
     "preview": "marp --server . --html",
-    "prehtml": "npm run css",
+    "prehtml": "npm run prepare:deck",
     "html": "marp slides.md --html --theme themes/base.css -o dist/index.html",
-    "prepdf": "npm run css",
+    "prepdf": "npm run prepare:deck",
     "pdf": "marp slides.md --pdf --allow-local-files --theme themes/base.css -o dist/slides.pdf",
-    "prepptx": "npm run css",
+    "prepptx": "npm run prepare:deck",
     "pptx": "marp slides.md --pptx --allow-local-files --theme themes/base.css -o dist/slides.pptx"
   },
   "devDependencies": {

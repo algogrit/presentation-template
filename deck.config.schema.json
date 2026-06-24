@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Marp deck metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "isTemplate",
+    "title",
+    "description",
+    "author",
+    "slug",
+    "repository",
+    "hosting"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "isTemplate": {
+      "type": "boolean",
+      "description": "Keep true only in the reusable template repository."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "author": {
+      "type": "string",
+      "minLength": 1
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "organization",
+        "name"
+      ],
+      "properties": {
+        "organization": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._-]+$"
+        }
+      }
+    },
+    "hosting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "baseDomain"
+      ],
+      "properties": {
+        "baseDomain": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+        }
+      }
+    }
+  }
+}

@@ -4,22 +4,26 @@ theme: base
 paginate: true
 size: 16:9
 transition: fade 0.4s
-title: Presentation Template
-description: Reusable Marp template for technical talks and training.
-author: Gaurav Agarwal
+title: "Presentation Template"
+description: "Reusable Marp template for technical talks and training."
+author: "Gaurav Agarwal"
 footer: "![CoderMana](assets/codermana.svg)"
 ---
 
 <!-- _class: title -->
 <!-- _transition: coverflow 0.7s -->
 
+<!-- deck:title:start -->
+
 ###### Eyebrow
 
-# Presentation Title
+# Presentation Template
 
-A one-line hook that sets up the talk.
+Reusable Marp template for technical talks and training.
 
 ###### Gaurav Agarwal
+
+<!-- deck:title:end -->
 
 ---
 
@@ -266,6 +270,17 @@ func main() {
 
 ---
 
+<!-- _class: caveat -->
+
+## State the useful rule
+
+Use the body of the slide for the normal case, recommendation, or primary
+explanation.
+
+> Caveat: reserve this anchored note for a constraint or exception that materially changes how the audience should apply the advice.
+
+---
+
 <!-- _class: exercise -->
 
 # Exercise
@@ -290,12 +305,16 @@ Work in pairs for 10 minutes.
 
 ---
 
+<!-- deck:resources:start -->
+
 ## Resources
 
 Code
 
-https://github.com/base-org/presentation-template-marp
+https://github.com/CoderMana/presentation-template-marp
 
 Slides
 
-https://template-marp.slides.base-org.com
+https://template-marp.slides.algogrit.com
+
+<!-- deck:resources:end -->

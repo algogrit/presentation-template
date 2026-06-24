@@ -1,0 +1,15 @@
+{
+  "$schema": "./deck.config.schema.json",
+  "isTemplate": true,
+  "title": "Presentation Template",
+  "description": "Reusable Marp template for technical talks and training.",
+  "author": "Gaurav Agarwal",
+  "slug": "template-marp",
+  "repository": {
+    "organization": "CoderMana",
+    "name": "presentation-template-marp"
+  },
+  "hosting": {
+    "baseDomain": "slides.algogrit.com"
+  }
+}

@@ -26,11 +26,14 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: npm
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Validate deck metadata
+        run: npm run deck:check
 
       - name: Build slides
         run: npm run html
