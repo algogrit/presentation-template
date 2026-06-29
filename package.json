@@ -18,6 +18,7 @@
     "preview": "marp --server . --html",
     "prehtml": "npm run prepare:deck",
     "html": "marp slides.md --html --theme themes/base.css -o dist/index.html",
+    "posthtml": "node scripts/copy-assets.mjs",
     "prepdf": "npm run prepare:deck",
     "pdf": "marp slides.md --pdf --allow-local-files --theme themes/base.css -o dist/slides.pdf",
     "prepptx": "npm run prepare:deck",
