@@ -66,8 +66,9 @@ npm run pdf
 npm run pptx
 ```
 
-Generated files are written to `dist/`. Each export (and `preview`) rebuilds the
-theme first via a `pre*` hook, so a stale stylesheet can never ship.
+Generated files are written to `dist/`. Each export (and `preview`) prepares the
+theme, diagrams, metadata, and source-backed snippets first. HTML export also
+copies `assets/` into `dist/`, so the deployed deck has its images and diagrams.
 
 ## Lint
 
@@ -84,7 +85,7 @@ repository. The slide check renders every slide headlessly and reports overflow.
 
 `deck.config.json` is the source of truth for deck identity and publishing:
 
-- title, description, and author
+- title, description, author, and optional cover eyebrow
 - URL slug
 - GitHub repository organization and name
 - hosting base domain (the custom domain is `<slug>.<baseDomain>`)
@@ -151,7 +152,7 @@ Available slide classes:
 - `quote` - pull quote
 - `caveat` - normal slide content with one consequential note anchored above the footer
 - `cards` - three-card summary
-- `code` - code-focused slide
+- `code` - code-focused slide; add `code-tight` for longer listings
 - `exercise` - workshop prompt
 - `takeaway` - closing summary
 - `cols-photo` - image beside vertically-centred text (`.cols` > `.col-media` + `.col-body`; add `media-right` to swap sides, `center-body` to centre the caption)
@@ -168,8 +169,46 @@ Markdown conventions:
 - Use `<!-- _class: caveat -->` and make the final blockquote the caveat.
 - Use a three-column Markdown table on `cards` slides.
 - Use Marp background image syntax like `![bg right:38% w:88%](assets/images/example.jpg)` for visual split slides.
+- Use a `mermaid` fenced block for diagrams; it is rendered to SVG for every export.
 
 HTML is still available if a specific deck needs a custom one-off layout, but the starter deck avoids it.
+
+## Mermaid Diagrams
+
+Keep diagrams in `slides.md` as Mermaid source:
+
+````md
+```mermaid
+flowchart LR
+  Idea --> Draft --> Export
+```
+````
+
+`npm run diagrams` creates ignored, hash-addressed SVG files in
+`assets/generated/mermaid/`. The normal preview, lint, and export commands run
+this automatically, so HTML, PDF, and PPTX all use the same diagram.
+
+## Source-backed Code Samples
+
+For a slide snippet that must match real source, add a marker before its fenced
+code block and bracket the source with `// #region` comments:
+
+````md
+<!-- snippet: examples/snippets/greeting.js#greeting -->
+```js
+// generated when the deck is built
+```
+````
+
+```js
+// #region greeting
+export function greeting(name) { return `Hello, ${name}!`; }
+// #endregion
+```
+
+`npm run snippets` replaces the marked block during deck preparation. Use
+`node scripts/build-snippets.mjs --check` in automation when you only want to
+detect stale snippets.
 
 ## Authoring Assets
 

@@ -32,6 +32,11 @@
       "type": "string",
       "minLength": 1
     },
+    "eyebrow": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Small label shown above the title on the cover slide. Defaults to \"Eyebrow\"."
+    },
     "slug": {
       "type": "string",
       "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"

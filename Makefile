@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-.PHONY: help install create sync check preview html pdf pptx lint lint-dense clean
+.PHONY: help install create sync check diagrams snippets preview html pdf pptx lint lint-dense clean
 
 help: ## Show available commands
 	@awk 'BEGIN {FS = ":.*## "; printf "Usage: make <target>\n\nTargets:\n"} /^[a-zA-Z_-]+:.*## / {printf "  %-12s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
@@ -17,6 +17,12 @@ sync: ## Synchronize generated files from deck.config.json
 
 check: ## Validate deck metadata
 	npm run deck:check
+
+diagrams: ## Render Mermaid diagrams from slides.md
+	npm run diagrams
+
+snippets: ## Synchronize source-backed code samples
+	npm run snippets
 
 preview: ## Start the live Marp preview
 	npm run preview
@@ -37,4 +43,4 @@ lint-dense: ## Also report dense-but-fitting slides
 	npm run lint -- --dense
 
 clean: ## Remove generated output
-	rm -rf dist themes/base.css
+	rm -rf dist themes/base.css assets/generated

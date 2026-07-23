@@ -528,6 +528,31 @@ section.code pre {
   margin-top: 22px;
 }
 
+// Add `code-tight` alongside `code` for longer listings that still need to fit
+// on one slide (for example: `<!-- _class: code code-tight -->`).
+section.code-tight pre code {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+section.code-tight pre {
+  padding: 12px 18px;
+}
+
+section .mermaid-container {
+  margin: 10px 0 18px;
+  text-align: center;
+}
+
+section .mermaid-container img {
+  display: block;
+  height: 330px;
+  margin: 0 auto;
+  max-height: 330px;
+  object-fit: contain;
+  width: 100%;
+}
+
 section.exercise {
   background:
     linear-gradient(135deg, rgba(249, 115, 22, 0.14), transparent 38%),

@@ -48,6 +48,10 @@ function validateConfig(config) {
     }
   }
 
+  if (config.eyebrow !== undefined && (typeof config.eyebrow !== 'string' || !config.eyebrow.trim())) {
+    fail('deck.config.json: eyebrow must be a non-empty string when provided');
+  }
+
   if (typeof config.isTemplate !== 'boolean') {
     fail('deck.config.json: isTemplate must be true or false');
   }
@@ -97,7 +101,7 @@ function expectedFiles(config) {
   slides = replaceGeneratedBlock(
     slides,
     'title',
-    `###### Eyebrow
+    `###### ${config.eyebrow ?? 'Eyebrow'}
 
 # ${config.title}
 

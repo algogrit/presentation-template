@@ -1,6 +1,7 @@
 {
   "$schema": "./deck.config.schema.json",
   "isTemplate": true,
+  "eyebrow": "Eyebrow",
   "title": "Presentation Template",
   "description": "Reusable Marp template for technical talks and training.",
   "author": "Gaurav Agarwal",

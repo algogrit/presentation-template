@@ -254,19 +254,50 @@ Good quote slides create a pause. Use them sparingly.
 
 <!-- _class: code -->
 
-## Code example
+## Source-backed code sample
 
-```go
-package main
+<!-- snippet: examples/snippets/greeting.js#greeting -->
 
-import "fmt"
-
-func main() {
-  fmt.Println("Hello, world!")
+```js
+export function greeting(name) {
+  return `Hello, ${name}!`;
 }
 ```
 
-> Code slides work best when the snippet is short enough to discuss line by line.
+> The marker keeps this slide synchronized with the named source region whenever the deck is built.
+
+---
+
+<!-- _class: code code-tight -->
+
+## Compact code sample
+
+```js
+const audience = ["design", "engineering", "product"];
+
+const plan = audience.map((group) => ({
+  group,
+  outcome: "leave with one concrete next step",
+  format: group === "engineering" ? "live demo" : "worked example",
+}));
+
+console.table(plan);
+```
+
+> Add `code-tight` only when a longer, discussion-worthy listing genuinely needs the extra room.
+
+---
+
+# Mermaid diagram sample
+
+```mermaid
+flowchart LR
+    Idea[Idea] --> Draft[Markdown slides]
+    Draft --> Build[Build diagrams]
+    Build --> Export[HTML, PDF, or PPTX]
+```
+
+> Keep diagrams as Mermaid source in the deck. The build creates matching SVGs for every export.
 
 ---
 

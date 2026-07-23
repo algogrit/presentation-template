@@ -10,22 +10,28 @@
     "create-deck": "node scripts/create-deck.mjs",
     "deck:sync": "node scripts/deck-metadata.mjs",
     "deck:check": "node scripts/deck-metadata.mjs --check",
-    "prepare:deck": "npm run deck:check && npm run css",
+    "snippets": "node scripts/build-snippets.mjs",
+    "diagrams": "node scripts/build-diagrams.mjs",
+    "prepare:deck": "npm run diagrams && npm run deck:check && npm run snippets && npm run css",
     "css": "node scripts/build-theme.mjs",
     "prelint": "npm run prepare:deck",
     "lint": "node scripts/check-slides.mjs",
     "prepreview": "npm run prepare:deck",
-    "preview": "marp --server . --html",
+    "preview": "marp --server . --html --no-stdin",
     "prehtml": "npm run prepare:deck",
-    "html": "marp slides.md --html --theme themes/base.css -o dist/index.html",
+    "html": "marp slides.md --html --theme themes/base.css -o dist/index.html --no-stdin",
     "posthtml": "node scripts/copy-assets.mjs",
     "prepdf": "npm run prepare:deck",
-    "pdf": "marp slides.md --pdf --allow-local-files --theme themes/base.css -o dist/slides.pdf",
+    "pdf": "marp slides.md --pdf --allow-local-files --theme themes/base.css -o dist/slides.pdf --no-stdin",
     "prepptx": "npm run prepare:deck",
-    "pptx": "marp slides.md --pptx --allow-local-files --theme themes/base.css -o dist/slides.pptx"
+    "pptx": "marp slides.md --pptx --allow-local-files --theme themes/base.css -o dist/slides.pptx --no-stdin"
   },
   "devDependencies": {
     "@marp-team/marp-cli": "^4.3.0",
+    "@mermaid-js/mermaid-cli": "^11.16.0",
     "sass": "^1.101.0"
+  },
+  "allowScripts": {
+    "puppeteer@25.3.0": true
   }
 }
